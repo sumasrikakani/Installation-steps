@@ -1,1 +1,21 @@
-install java
+#install java
+yum install java-1.8*
+#set the path in .bash_profile
+  export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.el8_4.x86_64
+PATH=$PATH:$JAVA_HOME
+
+sudo yum install wget
+
+follow the commands in
+  https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
+  
+If below error is found 
+Error:
+ Problem: cannot install the best candidate for the job
+  - nothing provides daemonize needed by jenkins-2.303.1-1.1.noarch
+  use commands
+     sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
+     sudo dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
+
+sudo yum install jenkins
+sudo systemctl jenkins start
